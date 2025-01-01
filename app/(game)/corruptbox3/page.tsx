@@ -44,10 +44,10 @@ export default function Corruptbox3Page() {
 
             <div>
               <h1 className="text-4xl font-bold text-[#2EE59D] mb-2">
-                Corruptbox 3 - Revolutionary Music Creation Game | Play Online Free
+                Corruptbox 3 - Revolutionary Music Creation Gaming Experience
               </h1>
               <p className="text-gray-400 text-lg">
-                The Ultimate Music Creation Gaming Experience. Create, mix, and share your unique beats in this groundbreaking music game. Join millions of players in Corruptbox 3's advanced music studio.
+                Play Corruptbox 3, the ultimate music creation game. Create amazing beats, mix unique sounds, and enjoy an immersive musical gaming experience. Join the Corruptbox 3 community today!
               </p>
             </div>
           </div>
