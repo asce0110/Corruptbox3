@@ -14,6 +14,18 @@ export function Navigation() {
     setIsOpen(false)
   }, [pathname])
 
+  // 当菜单打开时禁止滚动
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpen])
+
   const isActive = (path: string) => {
     return pathname === path ? 'text-[#2EE59D]' : 'text-gray-400 hover:text-[#2EE59D]'
   }
@@ -32,7 +44,7 @@ export function Navigation() {
       {/* 移动端菜单按钮 */}
       <button 
         onClick={toggleMenu}
-        className="block lg:hidden text-[#2EE59D] hover:text-[#1cc77f] transition-colors p-2"
+        className="block lg:hidden text-[#2EE59D] hover:text-[#1cc77f] transition-all duration-300 p-2 rounded-lg hover:bg-[#2EE59D]/10"
         aria-label={isOpen ? "Close Menu" : "Open Menu"}
       >
         {isOpen ? (
@@ -72,48 +84,78 @@ export function Navigation() {
       </nav>
 
       {/* 移动端导航菜单 */}
-      {isOpen && (
+      <div 
+        className={`lg:hidden fixed inset-0 z-50 transition-all duration-300 ${
+          isOpen 
+            ? 'opacity-100 pointer-events-auto' 
+            : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        {/* 背景遮罩 */}
         <div 
-          className="lg:hidden fixed inset-0 z-50 bg-black/95 backdrop-blur-lg"
+          className={`absolute inset-0 bg-black/90 backdrop-blur-lg transition-all duration-500 ${
+            isOpen ? 'opacity-100' : 'opacity-0'
+          }`}
           onClick={() => setIsOpen(false)}
+        />
+
+        {/* 菜单内容 */}
+        <div 
+          className={`relative h-full max-w-sm w-full bg-black/95 ml-auto transform transition-all duration-500 ${
+            isOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
         >
           {/* 关闭按钮 */}
           <button
             onClick={() => setIsOpen(false)}
-            className="absolute top-5 right-5 text-[#2EE59D] hover:text-[#1cc77f] transition-colors p-2"
+            className="absolute top-5 right-5 text-[#2EE59D] hover:text-[#1cc77f] transition-all duration-300 p-2 rounded-lg hover:bg-[#2EE59D]/10"
             aria-label="Close Menu"
           >
             <X className="w-7 h-7" />
           </button>
 
           <div 
-            className="flex flex-col items-center justify-center h-full space-y-12"
+            className="flex flex-col items-center justify-center h-full"
             onClick={handleContentClick}
           >
-            <Link 
-              href="/" 
-              className={`${isActive('/')} text-3xl font-medium transition-colors hover:text-[#2EE59D] hover:scale-110 transform duration-300`}
-              onClick={() => setIsOpen(false)}
-            >
-              Home
-            </Link>
-            <Link 
-              href="/sprunked-games" 
-              className={`${isActive('/sprunked-games')} text-3xl font-medium transition-colors hover:text-[#2EE59D] hover:scale-110 transform duration-300`}
-              onClick={() => setIsOpen(false)}
-            >
-              Sprunked Games
-            </Link>
-            <Link 
-              href="/about" 
-              className={`${isActive('/about')} text-3xl font-medium transition-colors hover:text-[#2EE59D] hover:scale-110 transform duration-300`}
-              onClick={() => setIsOpen(false)}
-            >
-              About Us
-            </Link>
+            <div className="space-y-8 py-8">
+              <Link 
+                href="/" 
+                className={`block px-8 py-4 text-2xl font-medium transition-all duration-300 rounded-lg ${
+                  pathname === '/' 
+                    ? 'text-[#2EE59D] bg-[#2EE59D]/10' 
+                    : 'text-gray-400 hover:text-[#2EE59D] hover:bg-[#2EE59D]/10'
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                Home
+              </Link>
+              <Link 
+                href="/sprunked-games" 
+                className={`block px-8 py-4 text-2xl font-medium transition-all duration-300 rounded-lg ${
+                  pathname === '/sprunked-games'
+                    ? 'text-[#2EE59D] bg-[#2EE59D]/10'
+                    : 'text-gray-400 hover:text-[#2EE59D] hover:bg-[#2EE59D]/10'
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                Sprunked Games
+              </Link>
+              <Link 
+                href="/about" 
+                className={`block px-8 py-4 text-2xl font-medium transition-all duration-300 rounded-lg ${
+                  pathname === '/about'
+                    ? 'text-[#2EE59D] bg-[#2EE59D]/10'
+                    : 'text-gray-400 hover:text-[#2EE59D] hover:bg-[#2EE59D]/10'
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                About Us
+              </Link>
+            </div>
           </div>
         </div>
-      )}
+      </div>
     </>
   )
 }
