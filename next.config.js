@@ -1,32 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
   images: {
-    domains: ['images.unsplash.com', '959c13b.webp.li'],
-    unoptimized: true,
-    remotePatterns: []
+    domains: [
+      's.incrediboxsprunkimod.com',
+      '959c13b.webp.li'
+    ],
   },
-  async rewrites() {
-    return [
-      {
-        source: '/scratch-proxy/:id',
-        destination: '/api/scratch-proxy/:id'
-      }
-    ]
-  },
-  // Disable cache for development
-  async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'no-store, must-revalidate'
-          }
-        ]
-      }
-    ]
-  }
 }
 
 module.exports = nextConfig
