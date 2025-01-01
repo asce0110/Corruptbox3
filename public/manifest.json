@@ -1,7 +1,7 @@
 {
-  "name": "IncrediboxSprunkiMod",
-  "short_name": "Sprunked",
-  "description": "Play Sprunked and other music creation games on IncrediboxSprunkiMod",
+  "name": "Corruptbox 3",
+  "short_name": "Corruptbox 3",
+  "description": "Play Corruptbox 3, the ultimate music creation game. Create amazing beats, mix unique sounds, and enjoy an immersive musical gaming experience.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",

@@ -26,26 +26,26 @@ export default function ContactPage() {
       <main className="container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold text-[#2EE59D] mb-8">
-            Contact Us
+            Contact Corruptbox 3 Support
           </h1>
 
           <div className="space-y-8">
             {/* Contact Information */}
             <section className="bg-black/50 rounded-xl p-6">
               <h2 className="text-2xl font-semibold text-[#2EE59D] mb-4">
-                Get in Touch
+                Get in Touch with Corruptbox 3 Team
               </h2>
               <p className="text-gray-300 mb-6">
-                Have questions about our Sprunked music creation games or need support? We're here to help! Contact us through email or use the form below.
+                Have questions about Corruptbox 3's music creation features or need technical support? Our dedicated team is here to help you create amazing music and make the most of your Corruptbox 3 experience!
               </p>
               
               <div className="flex items-center gap-3 p-4 bg-black/30 rounded-lg">
                 <Mail className="w-6 h-6 text-[#2EE59D]" />
                 <a 
-                  href="mailto:privacy@incrediboxsprunkimod.com"
+                  href="mailto:support@corruptbox3.com"
                   className="text-[#2EE59D] hover:underline"
                 >
-                  privacy@incrediboxsprunkimod.com
+                  support@corruptbox3.com
                 </a>
               </div>
             </section>
@@ -53,7 +53,7 @@ export default function ContactPage() {
             {/* Contact Form */}
             <section className="bg-black/50 rounded-xl p-6">
               <h2 className="text-2xl font-semibold text-[#2EE59D] mb-4">
-                Send Us a Message
+                Send Message to Corruptbox 3 Support
               </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
@@ -131,31 +131,31 @@ export default function ContactPage() {
             {/* FAQ Section */}
             <section className="bg-black/50 rounded-xl p-6">
               <h2 className="text-2xl font-semibold text-[#2EE59D] mb-4">
-                Frequently Asked Questions
+                Corruptbox 3 FAQ
               </h2>
               <div className="space-y-4">
                 <div>
                   <h3 className="text-lg font-medium text-white mb-2">
-                    What is the typical response time?
+                    How quickly can I get help with Corruptbox 3?
                   </h3>
                   <p className="text-gray-300">
-                    We aim to respond to all inquiries within 24-48 hours during business days.
+                    Our Corruptbox 3 support team typically responds within 24 hours to ensure you can get back to creating music quickly.
                   </p>
                 </div>
                 <div>
                   <h3 className="text-lg font-medium text-white mb-2">
-                    Need immediate help?
+                    Having technical issues with Corruptbox 3?
                   </h3>
                   <p className="text-gray-300">
-                    For urgent matters, please include "URGENT" in your email subject line.
+                    Please include your device type, browser version, and a detailed description of the issue you're experiencing in Corruptbox 3.
                   </p>
                 </div>
                 <div>
                   <h3 className="text-lg font-medium text-white mb-2">
-                    Having technical issues?
+                    Want to suggest new features for Corruptbox 3?
                   </h3>
                   <p className="text-gray-300">
-                    Please include your device type, browser version, and a detailed description of the issue.
+                    We love hearing from our community! Share your ideas for new sounds, features, or improvements you'd like to see in Corruptbox 3.
                   </p>
                 </div>
               </div>
