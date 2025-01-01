@@ -6,8 +6,8 @@ import { RootProvider } from '@/components/providers/root-provider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'IncrediboxSprunkiMod - Sprunked Music Creation Games',
-  description: 'Play Sprunked and other music creation games on IncrediboxSprunkiMod. Create amazing beats, mix unique sounds, and enjoy interactive music gaming experiences.',
+  title: 'Corruptbox 3 - Revolutionary Music Creation Gaming Experience',
+  description: 'Play Corruptbox 3, the ultimate music creation game. Create amazing beats, mix unique sounds, and enjoy an immersive musical gaming experience. Join the Corruptbox 3 community today!',
   icons: {
     icon: [
       {
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'IncrediboxSprunkiMod',
+    title: 'Corruptbox 3',
   },
 }
 
