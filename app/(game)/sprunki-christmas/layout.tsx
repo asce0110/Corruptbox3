@@ -1,27 +1,14 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import '../../globals.css'
-import { RootProvider } from '@/components/providers/root-provider'
-
-const inter = Inter({ subsets: ['latin'] })
+import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Sprunki Christmas - Create Festive Holiday Music',
-  description: 'Play Sprunki Christmas online - Create festive holiday music with this special Christmas edition. Mix Christmas beats, jingle bells, and holiday sounds in this unique music creation game.',
+  title: 'Play Sprunki Christmas on Corruptbox 3 - Music Creation Gaming Platform',
+  description: 'Experience Sprunki Christmas on Corruptbox 3, the ultimate music creation gaming platform. Create amazing beats and join the Corruptbox 3 community for an immersive musical experience.'
 }
 
-export default function SprunckiChristmasLayout({
+export default function Layout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <html lang="en" suppressHydrationWarning className="dark">
-      <body className={`${inter.className} min-h-screen bg-black text-white antialiased`}>
-        <RootProvider>
-          {children}
-        </RootProvider>
-      </body>
-    </html>
-  )
-} 
+  return children
+}
