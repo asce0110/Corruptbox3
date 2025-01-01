@@ -6,8 +6,8 @@ import { RootProvider } from '@/components/providers/root-provider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Sprunked - Revolutionary Music Creation Game',
-  description: 'Play Sprunked online - The revolutionary music creation game. Create amazing beats, mix unique sounds, and share your music. Experience the next evolution of music gaming!',
+  title: 'Play Sprunked on Corruptbox 3 - Music Creation Gaming Platform',
+  description: 'Experience Sprunked on Corruptbox 3, the ultimate music creation gaming platform. Create amazing beats and join the Corruptbox 3 community for an immersive musical experience.'
 }
 
 export default function SprunkedLayout({
