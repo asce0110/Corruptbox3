@@ -107,7 +107,7 @@ const games = [
     title: 'Incredibox Sprunki Mod',
     description: 'Experience the classic Incredibox with a unique Sprunki twist. Create amazing beats with this special modded version.',
     image: 'https://959c13b.webp.li/public/incredibox-characters.jpg',
-    href: '/incredibox-sprunki-mod',
+    href: '/incrediboxsprunkimod',
     features: [
       'Classic Incredibox style',
       'Sprunki mod features',
