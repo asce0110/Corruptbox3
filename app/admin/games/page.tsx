@@ -1,4 +1,4 @@
-import { createServerClient } from '@supabase/ssr'
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 
 interface Game {
@@ -9,24 +9,15 @@ interface Game {
 }
 
 export default async function AdminGamesPage() {
-  const cookieStore = cookies()
-  
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+  // 使用静态数据代替 Supabase 查询
+  const games = [
     {
-      cookies: {
-        get(name: string) {
-          return cookieStore.get(name)?.value
-        },
-      },
+      id: '1',
+      title: 'Corruptbox 3',
+      description: 'The ultimate music creation gaming experience',
+      created_at: new Date().toISOString()
     }
-  )
-
-  const { data: games } = await supabase
-    .from('games')
-    .select('*')
-    .order('created_at', { ascending: false })
+  ]
 
   return (
     <div className="container mx-auto py-8">
