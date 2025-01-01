@@ -1,13 +1,9 @@
 export interface Game {
-  id: number;
-  created_at: string;
+  id: string;
   title: string;
-  description: string | null;
-  image_url: string | null;
-  category_id: number;
-  itch_game_id: string;
-  slug: string;
-  featured: boolean;
+  description: string;
+  image_url?: string;
+  created_at: string;
 }
 
 export interface GameFormData {
