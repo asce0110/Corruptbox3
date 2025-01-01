@@ -1,6 +1,11 @@
- # https://incrediboxsprunkimod.com/
+# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
 
-# Sitemaps
-Sitemap: https://incrediboxsprunkimod.com/sitemap.xml
+# Sitemap
+Sitemap: https://corruptbox3.com/sitemap.xml
+
+# Disallow admin paths
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/

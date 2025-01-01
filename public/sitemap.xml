@@ -1,57 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://incrediboxsprunkimod.com/</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://corruptbox3.com/</loc>
+    <lastmod>2024-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://incrediboxsprunkimod.com/sprunked</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://corruptbox3.com/corruptbox3</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://corruptbox3.com/sprunked-games</loc>
+    <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://incrediboxsprunkimod.com/sprunki-brud</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://corruptbox3.com/sprunked</loc>
+    <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://incrediboxsprunkimod.com/gameincredibox</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://corruptbox3.com/sprunki-brud</loc>
+    <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://incrediboxsprunkimod.com/colorboxmustard</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://corruptbox3.com/game-incredibox</loc>
+    <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://incrediboxsprunkimod.com/incrediboxsprunkimod</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://corruptbox3.com/colorbox-mustard</loc>
+    <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://incrediboxsprunkimod.com/cool-as-ice</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://corruptbox3.com/incredibox-sprunki-mod</loc>
+    <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://incrediboxsprunkimod.com/sprunki-smg4</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://corruptbox3.com/cool-as-ice</loc>
+    <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://incrediboxsprunkimod.com/amazing-digital-circus</loc>
-    <lastmod>2024-03-21</lastmod>
+    <loc>https://corruptbox3.com/sprunki-smg4</loc>
+    <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://corruptbox3.com/amazing-digital-circus</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://corruptbox3.com/gray-sprunki</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://corruptbox3.com/sprunki-alive</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://corruptbox3.com/sprunki-modded</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://corruptbox3.com/sprunki-phase-8</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://corruptbox3.com/sprunki-christmas</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://corruptbox3.com/christmas-sprunki</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://corruptbox3.com/sprunki-incredibox</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://corruptbox3.com/sprunki-retake</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://corruptbox3.com/neesterversal-v3-incredibox</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://corruptbox3.com/about</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://corruptbox3.com/contact</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
