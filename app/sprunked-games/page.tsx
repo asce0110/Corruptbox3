@@ -104,14 +104,14 @@ const games = [
     ]
   },
   {
-    title: 'Corruptbox3 - Infected War',
-    description: 'Experience the thrilling Infected War version with unique gameplay mechanics',
+    title: 'Incredibox Sprunki Mod',
+    description: 'Experience the classic Incredibox with a unique Sprunki twist. Create amazing beats with this special modded version.',
     image: 'https://959c13b.webp.li/public/incredibox-characters.jpg',
-    href: '/corruptbox3',
+    href: '/incredibox-sprunki-mod',
     features: [
-      'Infected War theme',
-      'Special sound effects',
-      'Unique gameplay mechanics'
+      'Classic Incredibox style',
+      'Sprunki mod features',
+      'Enhanced gameplay mechanics'
     ]
   },
   {
@@ -255,17 +255,6 @@ const games = [
       'Fresh mechanics',
       'New features',
       'Modern interface'
-    ]
-  },
-  {
-    title: 'Incredibox Sprunki Mod',
-    description: 'The ultimate Incredibox mod with enhanced features',
-    image: 'https://959c13b.webp.li/public/incredibox-characters.jpg',
-    href: '/incrediboxsprunkimod',
-    features: [
-      'Enhanced features',
-      'Modern sounds',
-      'Unique visuals'
     ]
   },
   {
