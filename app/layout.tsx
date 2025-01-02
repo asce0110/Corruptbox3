@@ -29,7 +29,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
+      <head>
+        <link rel="icon" type="image/x-icon" href="https://s.incrediboxsprunkimod.com/public/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="96x96" href="https://s.incrediboxsprunkimod.com/public/favicon-96x96.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="https://s.incrediboxsprunkimod.com/public/apple-touch-icon.png" />
+      </head>
       <body className={inter.className}>
         <RootProvider>{children}</RootProvider>
       </body>
