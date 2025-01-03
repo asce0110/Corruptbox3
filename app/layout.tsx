@@ -7,10 +7,10 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
-    default: 'Sprunki Corruptbox 3 | Online Music Maker Game',
+    default: 'Sprunki Corruptbox 3 - Free Online Music Creation Game',
     template: '%s | Sprunki Corruptbox 3'
   },
-  description: 'Play Corruptbox 3, the ultimate music creation game. Create amazing beats, mix unique sounds, and enjoy an immersive musical gaming experience. Join the Corruptbox 3 community today!',
+  description: 'Create amazing beats and mix unique sounds in Sprunki Corruptbox 3. A free online music creation game that makes music production fun and accessible.',
   metadataBase: new URL('https://corruptbox3.com'),
   alternates: {
     canonical: '/',
@@ -28,18 +28,17 @@ export const metadata: Metadata = {
     title: 'Sprunki Corruptbox 3',
   },
   openGraph: {
-    title: 'Sprunki Corruptbox 3 | Online Music Maker Game',
-    description: 'Create amazing beats and music through an interactive gaming experience. Free online music creation game.',
+    title: 'Sprunki Corruptbox 3 - Free Online Music Creation Game',
+    description: 'Create amazing beats and mix unique sounds in Sprunki Corruptbox 3. A free online music creation game that makes music production fun and accessible.',
     url: 'https://corruptbox3.com',
     siteName: 'Sprunki Corruptbox 3',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sprunki Corruptbox 3 | Online Music Maker Game',
-    description: 'Create amazing beats and music through an interactive gaming experience. Free online music creation game.',
-  },
-  keywords: 'music creation game, online music maker, beat maker game, Sprunki Corruptbox 3, music production game',
+    title: 'Sprunki Corruptbox 3 - Free Online Music Creation Game',
+    description: 'Create amazing beats and mix unique sounds in Sprunki Corruptbox 3. A free online music creation game that makes music production fun and accessible.',
+  }
 }
 
 export default function RootLayout({
