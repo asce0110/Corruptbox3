@@ -64,15 +64,6 @@ export function Navigation() {
           <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#2EE59D] transition-all duration-300 group-hover:w-full" />
         </Link>
         <Link 
-          href="/sprunked-games" 
-          className={`${isActive('/sprunked-games')} transition-colors relative group`}
-          title="Play Sprunked Music Games - Free Online Music Creation Games"
-          aria-label="Browse Sprunked Music Games Collection"
-        >
-          Sprunked Games
-          <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#2EE59D] transition-all duration-300 group-hover:w-full" />
-        </Link>
-        <Link 
           href="/about" 
           className={`${isActive('/about')} transition-colors relative group`}
           title="Learn About Corruptbox 3"
@@ -129,17 +120,6 @@ export function Navigation() {
                 onClick={() => setIsOpen(false)}
               >
                 Home
-              </Link>
-              <Link 
-                href="/sprunked-games" 
-                className={`block px-8 py-4 text-2xl font-medium transition-all duration-300 rounded-lg ${
-                  pathname === '/sprunked-games'
-                    ? 'text-[#2EE59D] bg-[#2EE59D]/10'
-                    : 'text-gray-400 hover:text-[#2EE59D] hover:bg-[#2EE59D]/10'
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                Sprunked Games
               </Link>
               <Link 
                 href="/about" 

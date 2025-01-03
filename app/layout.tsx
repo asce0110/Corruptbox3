@@ -6,8 +6,15 @@ import { RootProvider } from '@/components/providers/root-provider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Corruptbox 3 - Revolutionary Music Creation Gaming Experience',
+  title: {
+    default: 'Sprunki Corruptbox 3 | Online Music Maker Game',
+    template: '%s | Sprunki Corruptbox 3'
+  },
   description: 'Play Corruptbox 3, the ultimate music creation game. Create amazing beats, mix unique sounds, and enjoy an immersive musical gaming experience. Join the Corruptbox 3 community today!',
+  metadataBase: new URL('https://corruptbox3.com'),
+  alternates: {
+    canonical: '/',
+  },
   icons: {
     shortcut: '/favicon.ico',
     icon: '/favicon-96x96.png',
@@ -18,8 +25,21 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'Corruptbox 3',
+    title: 'Sprunki Corruptbox 3',
   },
+  openGraph: {
+    title: 'Sprunki Corruptbox 3 | Online Music Maker Game',
+    description: 'Create amazing beats and music through an interactive gaming experience. Free online music creation game.',
+    url: 'https://corruptbox3.com',
+    siteName: 'Sprunki Corruptbox 3',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sprunki Corruptbox 3 | Online Music Maker Game',
+    description: 'Create amazing beats and music through an interactive gaming experience. Free online music creation game.',
+  },
+  keywords: 'music creation game, online music maker, beat maker game, Sprunki Corruptbox 3, music production game',
 }
 
 export default function RootLayout({
