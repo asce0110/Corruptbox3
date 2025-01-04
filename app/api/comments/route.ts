@@ -1,22 +1,11 @@
 import { NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { headers } from 'next/headers'
-import fs from 'fs'
-import path from 'path'
 
-const COMMENTS_FILE = path.join(process.cwd(), 'data', 'comments.json')
-
-// 确保 data 目录和 comments.json 文件存在
-try {
-  if (!fs.existsSync(path.dirname(COMMENTS_FILE))) {
-    fs.mkdirSync(path.dirname(COMMENTS_FILE), { recursive: true })
-  }
-  if (!fs.existsSync(COMMENTS_FILE)) {
-    fs.writeFileSync(COMMENTS_FILE, '[]', 'utf-8')
-  }
-} catch (error) {
-  console.error('初始化评论文件失败:', error)
-}
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN
+const REPO_OWNER = 'asce0110'
+const REPO_NAME = 'incredibox-comments'
+const ISSUE_NUMBER = '3'
 
 async function getLocationFromIP(ip: string) {
   try {
@@ -34,34 +23,75 @@ async function getLocationFromIP(ip: string) {
 
 async function fetchComments() {
   try {
-    console.log('正在读取评论文件...')
-    const content = fs.readFileSync(COMMENTS_FILE, 'utf-8')
-    console.log('读取到的原始内容:', content)
-    return JSON.parse(content || '[]')
+    const response = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues/${ISSUE_NUMBER}/comments`, {
+      headers: {
+        'Authorization': `token ${GITHUB_TOKEN}`,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    })
+    if (!response.ok) {
+      throw new Error('Failed to fetch comments from GitHub')
+    }
+    const comments = await response.json()
+    return comments.map((comment: any) => ({
+      id: comment.id.toString(),
+      content: comment.body,
+      createdAt: comment.created_at,
+      user: {
+        name: comment.user.login,
+        image: comment.user.avatar_url
+      },
+      location: 'GitHub',
+      likes: 0,
+      shares: 0,
+      likedBy: []
+    }))
   } catch (error) {
-    console.error('读取评论文件失败:', error)
+    console.error('Error fetching comments:', error)
     return []
   }
 }
 
-async function saveComments(comments: any[]) {
+async function createComment(content: string, user: any) {
   try {
-    fs.writeFileSync(COMMENTS_FILE, JSON.stringify(comments, null, 2), 'utf-8')
-    return true
+    const response = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues/${ISSUE_NUMBER}/comments`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `token ${GITHUB_TOKEN}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ body: content })
+    })
+    if (!response.ok) {
+      throw new Error('Failed to create comment on GitHub')
+    }
+    const comment = await response.json()
+    return {
+      id: comment.id.toString(),
+      content: comment.body,
+      createdAt: comment.created_at,
+      user: {
+        name: user.name || 'Anonymous',
+        image: user.image || 'https://github.com/ghost.png'
+      },
+      location: 'GitHub',
+      likes: 0,
+      shares: 0,
+      likedBy: []
+    }
   } catch (error) {
-    console.error('Error saving comments:', error)
-    return false
+    console.error('Error creating comment:', error)
+    throw error
   }
 }
 
 export async function GET() {
   try {
-    console.log('收到GET请求')
     const comments = await fetchComments()
-    console.log('返回评论数据:', comments)
     return NextResponse.json(comments)
   } catch (error) {
-    console.error('GET请求处理失败:', error)
+    console.error('Error in GET:', error)
     return new NextResponse('Internal Server Error', { status: 500 })
   }
 }
@@ -73,30 +103,8 @@ export async function POST(request: Request) {
       return new NextResponse('Unauthorized', { status: 401 })
     }
 
-    const headersList = headers()
-    const ip = headersList.get('x-forwarded-for') || ''
-    const location = await getLocationFromIP(ip)
-
     const { content } = await request.json()
-    const comments = await fetchComments()
-
-    const newComment = {
-      id: Date.now().toString(),
-      content,
-      createdAt: new Date().toISOString(),
-      user: {
-        name: session.user.name || 'Anonymous',
-        image: session.user.image || 'https://github.com/ghost.png'
-      },
-      location,
-      likes: 0,
-      shares: 0,
-      likedBy: []
-    }
-
-    comments.unshift(newComment)
-    await saveComments(comments)
-
+    const newComment = await createComment(content, session.user)
     return NextResponse.json(newComment)
   } catch (error) {
     console.error('Error in POST:', error)
@@ -113,25 +121,12 @@ export async function PUT(request: Request) {
   try {
     const { commentId, action } = await request.json()
     const comments = await fetchComments()
-    const comment = comments.find((c: { id: string }) => c.id === commentId)    
+    const comment = comments.find((c: { id: string }) => c.id === commentId)
     if (!comment) {
       return new NextResponse('Comment not found', { status: 404 })
     }
 
-    if (action === 'like') {
-      const userHasLiked = comment.likedBy.includes(session.user.email || '')
-      if (userHasLiked) {
-        comment.likes -= 1
-        comment.likedBy = comment.likedBy.filter((email: string) => email !== session.user?.email)
-      } else {
-        comment.likes += 1
-        comment.likedBy.push(session.user.email || '')
-      }
-    } else if (action === 'share') {
-      comment.shares += 1
-    }
-
-    await saveComments(comments)
+    // 由于GitHub Issues API不支持点赞和分享功能，这里只返回原评论
     return NextResponse.json(comment)
   } catch (error) {
     console.error('Error in PUT:', error)
