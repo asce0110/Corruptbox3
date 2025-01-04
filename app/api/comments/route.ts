@@ -33,19 +33,32 @@ async function fetchComments() {
       throw new Error('Failed to fetch comments from GitHub')
     }
     const comments = await response.json()
-    return comments.map((comment: any) => ({
-      id: comment.id.toString(),
-      content: comment.body,
-      createdAt: comment.created_at,
-      user: {
-        name: comment.user.login,
-        image: comment.user.avatar_url
-      },
-      location: 'GitHub',
-      likes: 0,
-      shares: 0,
-      likedBy: []
-    }))
+    return comments.map((comment: any) => {
+      const content = comment.body
+      const metaMatch = content.match(/<!--\s*META:\s*({.*?})\s*-->/)
+      let meta = { likes: 0, shares: 0, likedBy: [] }
+      if (metaMatch) {
+        try {
+          meta = JSON.parse(metaMatch[1])
+        } catch (e) {
+          console.error('Failed to parse meta data:', e)
+        }
+      }
+      
+      return {
+        id: comment.id.toString(),
+        content: content.replace(/<!--\s*META:\s*{.*?}\s*-->/, '').trim(),
+        createdAt: comment.created_at,
+        user: {
+          name: comment.user.login,
+          image: comment.user.avatar_url
+        },
+        location: 'GitHub',
+        likes: meta.likes,
+        shares: meta.shares,
+        likedBy: meta.likedBy
+      }
+    })
   } catch (error) {
     console.error('Error fetching comments:', error)
     return []
@@ -54,6 +67,8 @@ async function fetchComments() {
 
 async function createComment(content: string, user: any) {
   try {
+    const commentWithMeta = `${content}\n\n<!-- META: {"likes":0,"shares":0,"likedBy":[]} -->`
+    
     const response = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues/${ISSUE_NUMBER}/comments`, {
       method: 'POST',
       headers: {
@@ -61,7 +76,7 @@ async function createComment(content: string, user: any) {
         'Accept': 'application/vnd.github.v3+json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ body: content })
+      body: JSON.stringify({ body: commentWithMeta })
     })
     if (!response.ok) {
       throw new Error('Failed to create comment on GitHub')
@@ -69,7 +84,7 @@ async function createComment(content: string, user: any) {
     const comment = await response.json()
     return {
       id: comment.id.toString(),
-      content: comment.body,
+      content: content,
       createdAt: comment.created_at,
       user: {
         name: user.name || 'Anonymous',
@@ -82,6 +97,28 @@ async function createComment(content: string, user: any) {
     }
   } catch (error) {
     console.error('Error creating comment:', error)
+    throw error
+  }
+}
+
+async function updateComment(commentId: string, content: string, meta: any) {
+  try {
+    const commentWithMeta = `${content}\n\n<!-- META: ${JSON.stringify(meta)} -->`
+    const response = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues/comments/${commentId}`, {
+      method: 'PATCH',
+      headers: {
+        'Authorization': `token ${GITHUB_TOKEN}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ body: commentWithMeta })
+    })
+    if (!response.ok) {
+      throw new Error('Failed to update comment on GitHub')
+    }
+    return response.json()
+  } catch (error) {
+    console.error('Error updating comment:', error)
     throw error
   }
 }
@@ -126,8 +163,33 @@ export async function PUT(request: Request) {
       return new NextResponse('Comment not found', { status: 404 })
     }
 
-    // 由于GitHub Issues API不支持点赞和分享功能，这里只返回原评论
-    return NextResponse.json(comment)
+    const meta = {
+      likes: comment.likes,
+      shares: comment.shares,
+      likedBy: comment.likedBy || []
+    }
+
+    if (action === 'like') {
+      const userEmail = session.user.email || ''
+      const userHasLiked = meta.likedBy.includes(userEmail)
+      if (userHasLiked) {
+        meta.likes -= 1
+        meta.likedBy = meta.likedBy.filter((email: string) => email !== userEmail)
+      } else {
+        meta.likes += 1
+        meta.likedBy.push(userEmail)
+      }
+    } else if (action === 'share') {
+      meta.shares += 1
+    }
+
+    await updateComment(commentId, comment.content, meta)
+    return NextResponse.json({
+      ...comment,
+      likes: meta.likes,
+      shares: meta.shares,
+      likedBy: meta.likedBy
+    })
   } catch (error) {
     console.error('Error in PUT:', error)
     return new NextResponse('Internal Server Error', { status: 500 })
