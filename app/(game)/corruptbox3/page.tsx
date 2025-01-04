@@ -57,9 +57,9 @@ export default function Corruptbox3Page() {
             <iframe 
               ref={iframeRef}
               id="iframehtml5"
-              title="Corruptbox 3"
               className="iframe-default w-full"
-              src="https://pokerogue.io/corruptbox-3.embed"
+              src="https://iframegame.com/embed/corruptbox3-x-sprunki/index.html"
+              title="Corruptbox 3"
               style={{ 
                 border: 'none',
                 height: '600px'
