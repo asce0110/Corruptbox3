@@ -31,17 +31,21 @@ export function Comments() {
   }, [])
 
   const fetchComments = async () => {
+    console.log('开始获取评论...')
     setIsLoadingComments(true)
     setError('')
     try {
+      console.log('发送请求到 /api/comments...')
       const response = await fetch('/api/comments')
+      console.log('收到响应:', response.status)
       if (!response.ok) {
         throw new Error('Failed to fetch comments')
       }
       const data = await response.json()
+      console.log('获取到的评论数据:', data)
       setComments(data)
     } catch (error) {
-      console.error('Failed to fetch comments:', error)
+      console.error('获取评论失败:', error)
       setError('Failed to load comments. Please try again later.')
     } finally {
       setIsLoadingComments(false)
