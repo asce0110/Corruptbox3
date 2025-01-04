@@ -7,11 +7,15 @@ import path from 'path'
 const COMMENTS_FILE = path.join(process.cwd(), 'data', 'comments.json')
 
 // 确保 data 目录和 comments.json 文件存在
-if (!fs.existsSync(path.dirname(COMMENTS_FILE))) {
-  fs.mkdirSync(path.dirname(COMMENTS_FILE), { recursive: true })
-}
-if (!fs.existsSync(COMMENTS_FILE)) {
-  fs.writeFileSync(COMMENTS_FILE, '[]', 'utf-8')
+try {
+  if (!fs.existsSync(path.dirname(COMMENTS_FILE))) {
+    fs.mkdirSync(path.dirname(COMMENTS_FILE), { recursive: true })
+  }
+  if (!fs.existsSync(COMMENTS_FILE)) {
+    fs.writeFileSync(COMMENTS_FILE, '[]', 'utf-8')
+  }
+} catch (error) {
+  console.error('初始化评论文件失败:', error)
 }
 
 async function getLocationFromIP(ip: string) {
@@ -30,10 +34,12 @@ async function getLocationFromIP(ip: string) {
 
 async function fetchComments() {
   try {
+    console.log('正在读取评论文件...')
     const content = fs.readFileSync(COMMENTS_FILE, 'utf-8')
+    console.log('读取到的原始内容:', content)
     return JSON.parse(content || '[]')
   } catch (error) {
-    console.error('Error fetching comments:', error)
+    console.error('读取评论文件失败:', error)
     return []
   }
 }
@@ -50,10 +56,12 @@ async function saveComments(comments: any[]) {
 
 export async function GET() {
   try {
+    console.log('收到GET请求')
     const comments = await fetchComments()
+    console.log('返回评论数据:', comments)
     return NextResponse.json(comments)
   } catch (error) {
-    console.error('Error in GET:', error)
+    console.error('GET请求处理失败:', error)
     return new NextResponse('Internal Server Error', { status: 500 })
   }
 }
