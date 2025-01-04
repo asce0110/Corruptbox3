@@ -7,6 +7,14 @@ const nextConfig = {
       '959c13b.webp.li'
     ],
   },
+  rewrites: async () => {
+    return [
+      {
+        source: '/api/:path*',
+        destination: '/api/:path*',
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig
