@@ -58,10 +58,8 @@ export default function Corruptbox3Page() {
 
           {/* Comments Section */}
           <div className="mt-8 bg-black/50 rounded-xl" id="comments">
-            <div className="h-[400px] overflow-y-auto custom-scrollbar">
-              <div className="p-6">
-                <Comments />
-              </div>
+            <div className="p-6">
+              <Comments />
             </div>
           </div>
 

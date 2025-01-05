@@ -66,28 +66,6 @@ export default function Home() {
           <FAQ />
         </div>
       </section>
-
-      {/* Navigation Anchors */}
-      <nav className="fixed bottom-4 right-4 flex flex-col gap-2 z-50">
-        <Link 
-          href="#game"
-          className="bg-black/80 text-[#2EE59D] px-4 py-2 rounded-full hover:bg-[#2EE59D]/20 transition-all"
-        >
-          Game
-        </Link>
-        <Link 
-          href="#community"
-          className="bg-black/80 text-[#2EE59D] px-4 py-2 rounded-full hover:bg-[#2EE59D]/20 transition-all"
-        >
-          Community
-        </Link>
-        <Link 
-          href="#faq"
-          className="bg-black/80 text-[#2EE59D] px-4 py-2 rounded-full hover:bg-[#2EE59D]/20 transition-all"
-        >
-          FAQ
-        </Link>
-      </nav>
     </main>
   )
 } 
