@@ -1,21 +1,27 @@
 import { Comments } from '@/components/comments'
 import { MoreGames } from '@/components/more-games'
 import { FAQ } from '@/components/faq'
+import Link from 'next/link'
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-black via-black/95 to-black">
       {/* Hero Section with Game */}
-      <section className="relative pt-20 pb-12 px-4">
+      <section className="relative pt-20 pb-12 px-4" id="game">
         <div className="container mx-auto max-w-6xl">
           {/* SEO Optimized Heading */}
-          <h1 className="text-4xl md:text-5xl font-bold text-[#2EE59D] mb-6 text-center">
-            Corruptbox 3 - Free Online Music Creation Game
-          </h1>
-          <p className="text-gray-300 text-lg md:text-xl text-center mb-12 max-w-3xl mx-auto">
-            Create amazing beats and mix unique sounds in this innovative music creation game. 
-            No download required - start making music right in your browser!
-          </p>
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-[#2EE59D] mb-4">
+              Corruptbox 3 - Free Online Music Creation Game
+            </h1>
+            <h2 className="text-xl md:text-2xl text-[#2EE59D]/80 mb-6">
+              Create, Mix, and Share Your Music Online
+            </h2>
+            <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto">
+              Create amazing beats and mix unique sounds in this innovative music creation game. 
+              No download required - start making music right in your browser!
+            </p>
+          </div>
 
           {/* Game Container */}
           <div className="relative bg-black/50 rounded-2xl overflow-hidden shadow-xl shadow-[#2EE59D]/10">
@@ -23,7 +29,7 @@ export default function Home() {
               id="iframehtml5"
               className="w-full aspect-video"
               src="https://iframegame.com/embed/corruptbox3-x-sprunki/index.html"
-              title="Corruptbox 3"
+              title="Play Corruptbox 3 Online"
               frameBorder="0"
               scrolling="auto"
               allowFullScreen={true}
@@ -33,16 +39,19 @@ export default function Home() {
       </section>
 
       {/* Community and More Games Section */}
-      <section className="py-12 px-4 bg-black/90">
+      <section className="py-12 px-4 bg-black/90" id="community">
         <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl font-bold text-[#2EE59D] mb-8 text-center">Community & More Games</h2>
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Comments Section */}
             <div className="w-full lg:w-[400px] shrink-0">
+              <h3 className="text-2xl font-semibold text-[#2EE59D] mb-6">Join the Discussion</h3>
               <Comments />
             </div>
             {/* More Games Section */}
             <div className="flex-1">
               <div className="lg:sticky lg:top-4">
+                <h3 className="text-2xl font-semibold text-[#2EE59D] mb-6">Explore More Games</h3>
                 <MoreGames />
               </div>
             </div>
@@ -51,11 +60,34 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-12 px-4">
+      <section className="py-12 px-4" id="faq">
         <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl font-bold text-[#2EE59D] mb-8 text-center">Frequently Asked Questions</h2>
           <FAQ />
         </div>
       </section>
+
+      {/* Navigation Anchors */}
+      <nav className="fixed bottom-4 right-4 flex flex-col gap-2 z-50">
+        <Link 
+          href="#game"
+          className="bg-black/80 text-[#2EE59D] px-4 py-2 rounded-full hover:bg-[#2EE59D]/20 transition-all"
+        >
+          Game
+        </Link>
+        <Link 
+          href="#community"
+          className="bg-black/80 text-[#2EE59D] px-4 py-2 rounded-full hover:bg-[#2EE59D]/20 transition-all"
+        >
+          Community
+        </Link>
+        <Link 
+          href="#faq"
+          className="bg-black/80 text-[#2EE59D] px-4 py-2 rounded-full hover:bg-[#2EE59D]/20 transition-all"
+        >
+          FAQ
+        </Link>
+      </nav>
     </main>
   )
 } 
