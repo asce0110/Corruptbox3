@@ -202,6 +202,26 @@ Join our community at ${window.location.origin}`
                   )}
                 </div>
                 <p className="text-gray-300 mb-3 font-mono text-sm leading-relaxed">{comment.content}</p>
+                <div className="flex items-center gap-4">
+                  <button
+                    onClick={() => handleAction(comment.id, 'like')}
+                    className={`flex items-center gap-2 text-sm ${
+                      session?.user?.email && comment.likedBy.includes(session.user.email)
+                        ? 'text-[#2EE59D]'
+                        : 'text-gray-400 hover:text-[#2EE59D]'
+                    } transition-colors`}
+                  >
+                    <ThumbsUp className="w-4 h-4" />
+                    <span>{comment.likes}</span>
+                  </button>
+                  <button
+                    onClick={() => handleAction(comment.id, 'share')}
+                    className="flex items-center gap-2 text-sm text-gray-400 hover:text-[#2EE59D] transition-colors"
+                  >
+                    <Share2 className="w-4 h-4" />
+                    <span>{comment.shares}</span>
+                  </button>
+                </div>
               </div>
             </div>
           ))}
