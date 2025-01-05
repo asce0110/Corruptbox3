@@ -58,9 +58,6 @@ export default function Corruptbox3Page() {
 
           {/* Comments Section */}
           <div className="mt-8 bg-black/50 rounded-xl" id="comments">
-            <h2 className="text-2xl font-semibold text-[#2EE59D] p-6 border-b border-[#2EE59D]/10">
-              Community Discussion
-            </h2>
             <div className="h-[400px] overflow-y-auto custom-scrollbar">
               <div className="p-6">
                 <Comments />
@@ -95,34 +92,6 @@ export default function Corruptbox3Page() {
           </div>
         </div>
       </div>
-
-      {/* Navigation Anchors */}
-      <nav className="fixed bottom-4 right-4 flex flex-col gap-2 z-50">
-        <Link 
-          href="#nav"
-          className="bg-black/80 text-[#2EE59D] px-4 py-2 rounded-full hover:bg-[#2EE59D]/20 transition-all"
-        >
-          Top
-        </Link>
-        <Link 
-          href="#game"
-          className="bg-black/80 text-[#2EE59D] px-4 py-2 rounded-full hover:bg-[#2EE59D]/20 transition-all"
-        >
-          Game
-        </Link>
-        <Link 
-          href="#comments"
-          className="bg-black/80 text-[#2EE59D] px-4 py-2 rounded-full hover:bg-[#2EE59D]/20 transition-all"
-        >
-          Comments
-        </Link>
-        <Link 
-          href="#features"
-          className="bg-black/80 text-[#2EE59D] px-4 py-2 rounded-full hover:bg-[#2EE59D]/20 transition-all"
-        >
-          Features
-        </Link>
-      </nav>
     </div>
   )
 } 
