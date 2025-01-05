@@ -1,5 +1,4 @@
 import { Comments } from '@/components/comments'
-import { MoreGames } from '@/components/more-games'
 import { FAQ } from '@/components/faq'
 import Link from 'next/link'
 
@@ -38,22 +37,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Community and More Games Section */}
+      {/* Community Section */}
       <section className="py-12 px-4 bg-black/90" id="community">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold text-[#2EE59D] mb-8 text-center">Community & More Games</h2>
-          <div className="flex flex-col lg:flex-row gap-8">
-            {/* Comments Section */}
-            <div className="w-full lg:w-[400px] shrink-0">
+          <div className="flex justify-center">
+            <div className="w-full max-w-[600px]">
               <h3 className="text-2xl font-semibold text-[#2EE59D] mb-6">Join the Discussion</h3>
               <Comments />
-            </div>
-            {/* More Games Section */}
-            <div className="flex-1">
-              <div className="lg:sticky lg:top-4">
-                <h3 className="text-2xl font-semibold text-[#2EE59D] mb-6">Explore More Games</h3>
-                <MoreGames />
-              </div>
             </div>
           </div>
         </div>
