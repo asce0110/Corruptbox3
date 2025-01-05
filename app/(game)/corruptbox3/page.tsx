@@ -30,8 +30,8 @@ export default function Corruptbox3Page() {
       <Header />
       <div className="container mx-auto py-4 px-4">
         <div className="max-w-4xl mx-auto">
-          {/* SEO优化的标题区域 */}
-          <div className="mb-4 flex items-center gap-6">
+          {/* Navigation */}
+          <nav className="mb-8 flex items-center gap-4" id="nav">
             <Link 
               href="/" 
               className="group flex items-center justify-center w-12 h-12 rounded-full bg-black/50 hover:bg-[#2EE59D]/10 transition-all duration-300"
@@ -41,25 +41,29 @@ export default function Corruptbox3Page() {
                 <ArrowLeft className="w-6 h-6 text-[#2EE59D] relative z-10" />
               </div>
             </Link>
+            <h1 className="text-4xl font-bold text-[#2EE59D]">
+              Corruptbox 3
+            </h1>
+          </nav>
 
-            <div>
-              <h1 className="text-4xl font-bold text-[#2EE59D] mb-2">
-                Corruptbox 3 - Revolutionary Music Creation Gaming Experience
-              </h1>
-              <p className="text-gray-400 text-lg">
-                Play Corruptbox 3, the ultimate music creation game. Create amazing beats, mix unique sounds, and enjoy an immersive musical gaming experience. Join the Corruptbox 3 community today!
-              </p>
-            </div>
+          {/* Game Description */}
+          <div className="mb-8" id="description">
+            <h2 className="text-2xl font-semibold text-[#2EE59D] mb-4">
+              Revolutionary Music Creation Gaming Experience
+            </h2>
+            <p className="text-gray-400 text-lg">
+              Play Corruptbox 3, the ultimate music creation game. Create amazing beats, mix unique sounds, and enjoy an immersive musical gaming experience. Join the Corruptbox 3 community today!
+            </p>
           </div>
 
-          {/* 游戏区域 */}
-          <div className="relative bg-black/50 rounded-xl overflow-hidden shadow-lg shadow-[#2EE59D]/10">
+          {/* Game Container */}
+          <div className="relative bg-black/50 rounded-xl overflow-hidden shadow-lg shadow-[#2EE59D]/10" id="game">
             <iframe 
               ref={iframeRef}
               id="iframehtml5"
               className="iframe-default w-full"
               src="https://iframegame.com/embed/corruptbox3-x-sprunki/index.html"
-              title="Corruptbox 3"
+              title="Play Corruptbox 3 Online"
               style={{ 
                 border: 'none',
                 height: '600px'
@@ -68,11 +72,13 @@ export default function Corruptbox3Page() {
               scrolling="auto"
               allowFullScreen={true}
             />
-            <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black via-black/95 to-transparent z-10" />
           </div>
 
-          {/* 评论区 */}
-          <div className="mt-8 bg-black/50 rounded-xl">
+          {/* Comments Section */}
+          <div className="mt-8 bg-black/50 rounded-xl" id="comments">
+            <h2 className="text-2xl font-semibold text-[#2EE59D] p-6 border-b border-[#2EE59D]/10">
+              Community Discussion
+            </h2>
             <div className="h-[400px] overflow-y-auto custom-scrollbar">
               <div className="p-6">
                 <Comments />
@@ -80,61 +86,61 @@ export default function Corruptbox3Page() {
             </div>
           </div>
 
-          {/* 游戏介绍 */}
-          <div className="mt-8 space-y-6">
+          {/* Game Features */}
+          <div className="mt-8 space-y-6" id="features">
             <div className="p-6 bg-black/50 rounded-xl">
               <h2 className="text-2xl font-semibold text-[#2EE59D] mb-4">
-                About Corruptbox 3 - Music Creation Game
+                About Corruptbox 3
               </h2>
               <p className="text-gray-300 mb-4">
-                Corruptbox 3 brings a revolutionary approach to music creation gaming. This special version of Corruptbox 3 combines advanced music creation tools with an intuitive interface, making it easy for anyone to create amazing music. Whether you're a beginner or an experienced musician, Corruptbox 3 provides all the tools you need.
+                Corruptbox 3 brings a revolutionary approach to music creation gaming. This special version combines advanced music creation tools with an intuitive interface, making it easy for anyone to create amazing music.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
                 <div className="flex flex-col items-center p-4 bg-black/30 rounded-lg">
                   <span className="text-[#2EE59D] font-bold text-lg mb-2">Advanced Features</span>
-                  <span className="text-gray-400 text-center">Corruptbox 3's powerful music tools</span>
+                  <span className="text-gray-400 text-center">Powerful music tools</span>
                 </div>
                 <div className="flex flex-col items-center p-4 bg-black/30 rounded-lg">
                   <span className="text-[#2EE59D] font-bold text-lg mb-2">Music Creation</span>
-                  <span className="text-gray-400 text-center">Create unique beats in Corruptbox 3</span>
+                  <span className="text-gray-400 text-center">Create unique beats</span>
                 </div>
                 <div className="flex flex-col items-center p-4 bg-black/30 rounded-lg">
                   <span className="text-[#2EE59D] font-bold text-lg mb-2">Special Features</span>
-                  <span className="text-gray-400 text-center">Exclusive Corruptbox 3 content</span>
-                </div>
-              </div>
-            </div>
-
-            {/* 游戏特点 */}
-            <div className="p-6 bg-black/50 rounded-xl">
-              <h2 className="text-2xl font-semibold text-[#2EE59D] mb-6">
-                Why Play Corruptbox 3?
-              </h2>
-              <div className="space-y-4">
-                <div className="border-b border-[#2EE59D]/10 pb-4">
-                  <h3 className="text-lg font-medium text-white mb-2">Innovative Gameplay</h3>
-                  <p className="text-gray-400">Experience Corruptbox 3's unique blend of music creation tools and intuitive controls that creates an entirely new gaming experience.</p>
-                </div>
-
-                <div className="border-b border-[#2EE59D]/10 pb-4">
-                  <h3 className="text-lg font-medium text-white mb-2">Advanced Sound Library</h3>
-                  <p className="text-gray-400">Access Corruptbox 3's extensive collection of sounds and effects to create your unique musical compositions.</p>
-                </div>
-
-                <div className="border-b border-[#2EE59D]/10 pb-4">
-                  <h3 className="text-lg font-medium text-white mb-2">Immersive Experience</h3>
-                  <p className="text-gray-400">Get lost in the world of music creation with Corruptbox 3's engaging interface and real-time feedback.</p>
-                </div>
-
-                <div className="border-b border-[#2EE59D]/10 pb-4">
-                  <h3 className="text-lg font-medium text-white mb-2">Regular Updates</h3>
-                  <p className="text-gray-400">Enjoy new content and features as they are added to enhance your Corruptbox 3 experience.</p>
+                  <span className="text-gray-400 text-center">Exclusive content</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Navigation Anchors */}
+      <nav className="fixed bottom-4 right-4 flex flex-col gap-2 z-50">
+        <Link 
+          href="#nav"
+          className="bg-black/80 text-[#2EE59D] px-4 py-2 rounded-full hover:bg-[#2EE59D]/20 transition-all"
+        >
+          Top
+        </Link>
+        <Link 
+          href="#game"
+          className="bg-black/80 text-[#2EE59D] px-4 py-2 rounded-full hover:bg-[#2EE59D]/20 transition-all"
+        >
+          Game
+        </Link>
+        <Link 
+          href="#comments"
+          className="bg-black/80 text-[#2EE59D] px-4 py-2 rounded-full hover:bg-[#2EE59D]/20 transition-all"
+        >
+          Comments
+        </Link>
+        <Link 
+          href="#features"
+          className="bg-black/80 text-[#2EE59D] px-4 py-2 rounded-full hover:bg-[#2EE59D]/20 transition-all"
+        >
+          Features
+        </Link>
+      </nav>
     </div>
   )
 } 
