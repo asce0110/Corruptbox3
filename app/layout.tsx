@@ -10,12 +10,11 @@ export const metadata: Metadata = {
     default: 'Sprunki Corruptbox 3 - Free Online Music Creation Game',
     template: '%s | Sprunki Corruptbox 3'
   },
-  description: 'Create amazing beats and mix unique sounds in Sprunki Corruptbox 3. A free online music creation game that makes music production fun and accessible. Join our community of music creators today!',
+  description: 'Create amazing beats and mix unique sounds in Sprunki Corruptbox 3. A free online music creation game that lets you produce music easily. Start creating now!',
   metadataBase: new URL('https://corruptbox3.com'),
   alternates: {
     canonical: '/',
   },
-  keywords: 'music creation game, online music maker, beat maker, music production, free music game, Sprunki, Corruptbox 3, music creation, music composition, online music tools',
   robots: {
     index: true,
     follow: true,
