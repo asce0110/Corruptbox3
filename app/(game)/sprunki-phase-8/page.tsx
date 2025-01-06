@@ -30,7 +30,7 @@ export default function SprunkiPhase8Page() {
       <Header />
       <div className="container mx-auto py-4 px-4">
         <div className="max-w-4xl mx-auto">
-          {/* SEO优化的标题区域 */}
+          {/* Title Section */}
           <div className="mb-4 flex items-center gap-6">
             <Link 
               href="/" 
@@ -52,12 +52,12 @@ export default function SprunkiPhase8Page() {
             </div>
           </div>
 
-          {/* 游戏区域 */}
+          {/* Game Container */}
           <div className="relative bg-black/50 rounded-xl overflow-hidden shadow-lg shadow-[#2EE59D]/10" style={{ minHeight: '600px' }}>
             <iframe 
               ref={iframeRef}
               id="game_drop"
-              src="https://turbowarp.org/embed.html?project_url=https://s.incrediboxsprunkimod.com/Incredibox%20-%20Sprunki%20Phase%208.sb3"
+              src="https://turbowarp.org/embed.html?project_url=https://s.incrediboxsprunkimod.com/Sprunki-Phase-8.sb3"
               className="w-full"
               style={{ 
                 border: 'none',
@@ -73,7 +73,7 @@ export default function SprunkiPhase8Page() {
             <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black via-black/95 to-transparent z-10" />
           </div>
 
-          {/* 评论区 */}
+          {/* Comments Section */}
           <div className="mt-8 bg-black/50 rounded-xl">
             <div className="h-[400px] overflow-y-auto custom-scrollbar">
               <div className="p-6">
@@ -82,7 +82,7 @@ export default function SprunkiPhase8Page() {
             </div>
           </div>
 
-          {/* 游戏介绍 */}
+          {/* Game Description */}
           <div className="mt-8 space-y-6">
             <div className="p-6 bg-black/50 rounded-xl">
               <h2 className="text-2xl font-semibold text-[#2EE59D] mb-4">
@@ -107,7 +107,7 @@ export default function SprunkiPhase8Page() {
               </div>
             </div>
 
-            {/* 游戏特点 */}
+            {/* Game Features */}
             <div className="p-6 bg-black/50 rounded-xl">
               <h2 className="text-2xl font-semibold text-[#2EE59D] mb-6">
                 Why Play Sprunki Phase 8?
