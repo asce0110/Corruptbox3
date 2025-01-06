@@ -57,7 +57,7 @@ export default function SprunkiPhase8Page() {
             <iframe 
               ref={iframeRef}
               id="game_drop"
-              src="https://s.incrediboxsprunkimod.com/Incredibox%20-%20Sprunki%20Phase%208.sb3"
+              src="https://turbowarp.org/embed.html?project_url=https://s.incrediboxsprunkimod.com/Incredibox%20-%20Sprunki%20Phase%208.sb3"
               className="w-full"
               style={{ 
                 border: 'none',
