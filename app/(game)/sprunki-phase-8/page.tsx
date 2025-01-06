@@ -56,8 +56,8 @@ export default function SprunkiPhase8Page() {
           <div className="relative bg-black/50 rounded-xl overflow-hidden shadow-lg shadow-[#2EE59D]/10" style={{ minHeight: '600px' }}>
             <iframe 
               ref={iframeRef}
-              id="game_drop"
-              src="https://turbowarp.org/embed.html?project_url=https://s.incrediboxsprunkimod.com/Sprunki-Phase-8.sb3"
+              id="iframe-cocrea"
+              src="https://cocrea.world/embed/1876259558864818177?type=card&showCreator=false&showOperating=true"
               className="w-full"
               style={{ 
                 border: 'none',
@@ -65,10 +65,10 @@ export default function SprunkiPhase8Page() {
                 height: '600px',
                 marginTop: '40px'
               }}
+              title="Incredibox - Sprunki Phase 8/Scratch project hosted on Cocrea."
               frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen={true}
-              scrolling="no"
-              allow="autoplay; fullscreen *; geolocation; microphone; camera; midi; monetization; xr-spatial-tracking; gamepad; gyroscope; accelerometer; xr; cross-origin-isolated; web-share"
             />
             <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black via-black/95 to-transparent z-10" />
           </div>
